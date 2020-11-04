@@ -2,7 +2,7 @@
 
 const API_URL = 'https://newsapi.org/v2/';
 
-const API_KEY = '4ed7328694de4a90801f2f8aeaa4562b';
+const API_KEY = '78b9d599c4f94f8fa3afb1a5458928d6';
 
 const API_TP_TECH = 'top-headlines?category=technology'
 const API_TP_SPORT = 'top-headlines?category=sports'
