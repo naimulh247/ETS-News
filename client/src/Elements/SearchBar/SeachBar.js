@@ -20,18 +20,23 @@ class SearchBar extends Component {
     render (){
 
         return (
-            <>
-            {/* <div class="search-icon">
-                <span class="fas fa-search"></span>
-            </div>
-            <div class="cancel-icon">
-                <span class="fas fa-times"></span> */}
-            {/* </div> */}
-        <form action="#">
-            <input type="search" class="search-data" placeholder="Search" required />
-            <button type="submit" class="fas fa-search"></button>
-        </form>
-        </>
+            
+            
+
+            <nav>
+                <div class="search-icon">
+                    <span class="fas fa-search"></span>
+                </div>
+                <div class="cancel-icon">
+                <span class="fas fa-times"></span> 
+                </div>
+                <form>
+                <input type="search" class="search-data" placeholder="Search" required onChange={this.doSearch} value={this.state.value}/>
+                <button class="fas fa-search"></button>
+                </form>
+            </nav>
+
+
         )
     }
 }

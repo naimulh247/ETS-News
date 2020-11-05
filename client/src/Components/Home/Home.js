@@ -124,7 +124,7 @@ class Home extends Component{
             // <div>Home</div>
         <>
             <SearchBar callback = {this.searchItem}/>
-            
+
             <div className="HomeMain-wrapper">
                 {this.state.loading ? <h1>Loading<br></br></h1> : <>
                 {this.state.sportArticles.length ?  
