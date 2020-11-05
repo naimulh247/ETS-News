@@ -32,7 +32,7 @@ class Technology extends Component{
         // if(searchTerm === ''){
             // {this.state.currentResult + 20}
             endpoint = `${API_URL}${API_TP_TECH}&apiKey=${API_KEY}&page=${this.state.page}`;
-            console.log(this.state.page, this.state.currentResult)
+            console.log("page count: ", this.state.page, "currentResult: ", this.state.currentResult)
         // }
 
         this.fetchTech(endpoint)
@@ -42,9 +42,9 @@ class Technology extends Component{
         .then(result=>result.json())
         .then(result =>{
     
-            console.log(result.articles);
-            console.log(result.totalResults);
-            console.log(result.articles[0].author);
+            // console.log(result.articles);
+            // console.log(result.totalResults);
+            // console.log(result.articles[0].author);
             let pageCount = this.state.page + 1;
             let resultCount  = this.state.currentResult +20;
             this.setState({
@@ -60,6 +60,27 @@ class Technology extends Component{
         .catch(error=>console.log('Error: ', error));
     }
 
+    searchItem = (searchTerm) =>{
+        console.log("SearchTerm: ",searchTerm)
+        let endpoint = ''
+
+        this.setState({
+            techArticles:[],
+            loading: true,
+            page:1,
+            totalResult: 0,
+            currentResult:0,
+            searchTerm
+        })
+        if(searchTerm ===''){
+            endpoint = `${API_URL}${API_TP_TECH}&apiKey=${API_KEY}`;
+        }
+        else{
+            endpoint = `${API_URL}${API_TP_TECH}&apiKey=${API_KEY}&q=${searchTerm}`;
+        }
+        this.fetchTech(endpoint)
+    }
+
 
 
 
@@ -69,6 +90,7 @@ class Technology extends Component{
         return(
         // <h1>{this.state.techArticles.title}</h1>
             <div>
+                <SearchBar callback={this.searchItem}/>
                 {this.state.loading ? <h1>Loading...</h1> : null}
                 {this.state.techArticles.map((elements, i)=>{
                     return <TechnologyGrid title={elements.title} author={elements.author}/>
