@@ -4,6 +4,7 @@ import Home from '../Home/Home'
 import Header from '../../Elements/Header/Header'
 import Technology from '../../Components/Technology/Technology'
 import Sports from '../../Components/Sports/Sports'
+import Entertainment from '../../Components/Entertainment/Entertainment'
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
           <Route path="/" component={Home} exact />
           <Route path="/tech" component={Technology} />
           <Route path="/sports" component={Sports} />
+          <Route path="/ent" component={Entertainment}/>
         </Switch>
       </React.Fragment>
 
