@@ -20,7 +20,8 @@ class Home extends Component{
         this.setState({loading: true});
 
         const endpoint = `${API_URL}${API_TP_SPORT}&apiKey=${API_KEY}&pageSize=3`;
-        this.fetchTemp(endpoint)
+
+        this.fetchTemp(endpoint, '')
         
     }
 
@@ -43,7 +44,7 @@ class Home extends Component{
 
 
     fetchTemp = (endpoint, query) =>{
-        fetch(endpoint)
+        if(query === ''){fetch(endpoint)
         .then(result=>result.json())
         .then(result =>{
     
@@ -57,7 +58,7 @@ class Home extends Component{
         })
         .catch(error=>console.log('Sport Error: ', error));
 
-        fetch(`${API_URL}${API_TP_TECH}&apiKey=${API_KEY}&pageSize=3&q=${query}`)
+        fetch(`${API_URL}${API_TP_TECH}&apiKey=${API_KEY}&pageSize=3`)
             .then(result=>result.json())
             .then(result =>{
         
@@ -70,7 +71,7 @@ class Home extends Component{
             // console.log(this.state.articles[0].author)
         }).catch(error=>console.log('Tech Error: ', error));
 
-        fetch(`${API_URL}${API_TP_ENT}&apiKey=${API_KEY}&pageSize=3&q=${query}`)
+        fetch(`${API_URL}${API_TP_ENT}&apiKey=${API_KEY}&pageSize=3`)
             .then(result=>result.json())
             .then(result =>{
         
@@ -84,7 +85,7 @@ class Home extends Component{
             // console.log(this.state.articles[0].author)
         })
         
-        .catch(error=>console.log('Ent Error: ', error));
+        .catch(error=>console.log('Ent Error: ', error));}
     }
 
     searchItem = (searchTerm) =>{
@@ -101,7 +102,7 @@ class Home extends Component{
 
         if(searchTerm === ''){
             endpoint = `${API_URL}${API_TP_SPORT}&apiKey=${API_KEY}&pageSize=3`;
-            this.fetchTemp(endpoint);
+            this.fetchTemp(endpoint,'');
         }
         else{
             endpoint = `${API_URL}${API_TP_SPORT}&apiKey=${API_KEY}&pageSize=3&q=${searchTerm}`;
@@ -121,12 +122,11 @@ class Home extends Component{
 
             // {state.articles}
             // <div>Home</div>
-            <>
+        <>
             <SearchBar callback = {this.searchItem}/>
 
             <div className="HomeMain-wrapper">
-                {this.state.loading ? <h1>Loading<br></br></h1>: null}
-                {/* test */}
+                {this.state.loading ? <h1>Loading<br></br></h1> : <>
                 {this.state.sportArticles.length ?  
                 <div>
                     <h1>Trending in Sports News</h1>
@@ -161,9 +161,11 @@ class Home extends Component{
                     image = {elements.urlToImage} author= {elements.author} description = {elements.description} 
                     date = {elements.publishedAt} linkToArticle={elements.url} title={elements.title}>
                     </HomeMain>})}
-                </div> :<h1>Nothing can be found in Entertainment?? Sowwyyy....</h1>}
+                </div> :<h1>Nothing can be found in Entertainment?? Sowwyyy....</h1>}</>}
+
+                
             </div>
-            </>
+                    </>
         )
     }
 }

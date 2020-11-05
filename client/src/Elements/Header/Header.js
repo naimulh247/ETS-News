@@ -21,19 +21,19 @@ class Header extends Component  {
             searchBtn.classList.add("hide");
             cancelBtn.classList.add("show");
         };
-        cancelBtn.onclick = () => {
-            items.classList.remove("active");
-            menuBtn.classList.remove("hide");
-            searchBtn.classList.remove("hide");
-            cancelBtn.classList.remove("show");
-            form.classList.remove("active");
-            cancelBtn.style.color = "#ff3d00";
-        };
-        searchBtn.onclick = () => {
-            form.classList.add("active");
-            searchBtn.classList.add("hide");
-            cancelBtn.classList.add("show");
-        };
+        // cancelBtn.onclick = () => {
+        //     items.classList.remove("active");
+        //     menuBtn.classList.remove("hide");
+        //     searchBtn.classList.remove("hide");
+        //     cancelBtn.classList.remove("show");
+        //     form.classList.remove("active");
+        //     cancelBtn.style.color = "#ff3d00";
+        // };
+        // searchBtn.onclick = () => {
+        //     form.classList.add("active");
+        //     searchBtn.classList.add("hide");
+        //     cancelBtn.classList.add("show");
+        // };
 
     }
 
@@ -47,8 +47,8 @@ class Header extends Component  {
             </div>
             <div className="logo">ETS News</div>
             <div className="nav-items">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Technology</a></li>
+                <li><a href="/">Home</a></li>
+                <li><a href="tech">Technology</a></li>
                 <li><a href="#">Entertainment</a></li>
                 <li><a href="#">Science</a></li>
             </div>
