@@ -24,6 +24,20 @@ class SearchBar extends Component {
             
 
             <nav>
+                <div class="menu-icon">
+                    <span class="fas fa-bars"></span>
+                </div>
+                <div class="logo">ETS News</div>
+                <div class="nav-items">
+
+                <li><a href="/">Home</a></li>
+                <li><a href="tech">Technology</a></li>
+                <li><a href="ent">Entertainment</a></li>
+                <li><a href="sport">Sport</a></li>
+
+                </div>
+
+
                 <div class="search-icon">
                     <span class="fas fa-search"></span>
                 </div>

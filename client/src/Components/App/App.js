@@ -7,12 +7,13 @@ import Sports from '../../Components/Sports/Sports'
 import Entertainment from '../../Components/Entertainment/Entertainment'
 
 function App() {
+  const [search, setSearch] = React.useState('');
   return (
     <BrowserRouter>
       <React.Fragment>
-      <Header/>
+      <Header value={search} onChange={setSearch}/>
         <Switch>
-          <Route path="/" component={Home} exact />
+          <Route path="/" render={() => <Home search={search} />} exact />
           <Route path="/tech" component={Technology} />
           <Route path="/sports" component={Sports} />
           <Route path="/ent" component={Entertainment}/>

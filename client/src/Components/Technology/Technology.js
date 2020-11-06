@@ -44,7 +44,8 @@ class Technology extends Component{
     
             // console.log(result.articles);
             // console.log(result.totalResults);
-            // console.log(result.articles[0].author);
+            console.log(result.articles[0].author);
+            console.log()
             let pageCount = this.state.page + 1;
             let resultCount  = this.state.currentResult +20;
             this.setState({
@@ -89,17 +90,23 @@ class Technology extends Component{
 
         return(
         // <h1>{this.state.techArticles.title}</h1>
-            <div>
-                <SearchBar callback={this.searchItem}/>
+        <>
+            <SearchBar callback={this.searchItem}/>
+
+            <div className="card-deck">
                 {this.state.loading ? <h1>Loading...</h1> : null}
                 {this.state.techArticles.map((elements, i)=>{
-                    return <TechnologyGrid title={elements.title} author={elements.author}/>
-                })};
+                    return <TechnologyGrid 
+                    title={elements.title} author={elements.author? elements.author : "Unknown Author"} description={elements.description ? elements.description : "Unkown Description"}
+                     date={elements.publishedAt} url={elements.url} image={elements.urlToImage} source = {elements.source.name ? elements.source.name : "unkown"}
+                    />
+                })}
                 {(this.state.currentResult <= this.state.totalResult && !this.state.loading) ?
                     <LoadMoreBtn text= "Load More" onClick = {this.loadMoreItems}/> 
                     : null
                 }
             </div>
+            </>
         )
     }
 }

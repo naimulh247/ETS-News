@@ -11,7 +11,7 @@ const Header =() =>{
     return ( 
 
         <>
-        <nav>
+        {/* <nav>
         <div class="menu-icon">
             <span class="fas fa-bars"></span>
         </div>
@@ -21,8 +21,8 @@ const Header =() =>{
                 <li><a href="tech">Technology</a></li>
                 <li><a href="ent">Entertainment</a></li>
                 <li><a href="sports">Sports</a></li>
-            </div>
-
+            </div> */}
+        {/* <SearchBar callback={onchange}></SearchBar> */}
         {/* <div class="search-icon">
             <span class="fas fa-search"></span>
         </div>
@@ -33,7 +33,7 @@ const Header =() =>{
             <input type="search" class="search-data" placeholder="Search" required />
             <button type="submit" class="fas fa-search"></button>
         </form> */}
-    </nav>
+    {/* </nav> */}
         </>
     )
 
