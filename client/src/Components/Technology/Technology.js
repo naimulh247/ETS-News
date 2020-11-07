@@ -106,7 +106,7 @@ class Technology extends Component{
                     : null
                 }
             </div>
-            </>
+        </>
         )
     }
 }

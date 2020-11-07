@@ -14,14 +14,14 @@ const TechnologyGrid = (props) =>{
                 <p class="card-text text-muted">Source: {props.source}</p>
 
                 <p class="card-text">{props.description}</p>
-                <button><a  href={props.url} target="_blank" className="btn">Read More</a></button>
+                {props.url? <button><a  href={props.url} target="_blank" className="btn">Read More</a></button> : <button disabled><a  href="#" className="btn">No Link Available</a></button>}
             </div>
             <div class="card-footer">
                 
                 <small class="text-muted">{moment(props.date).format("MMMM do YYYY")}</small>
             </div>
         </div>
-  </>
+        </>
     )
 }
 

@@ -30,10 +30,10 @@ class SearchBar extends Component {
                 <div class="logo">ETS News</div>
                 <div class="nav-items">
 
-                <li><a href="/">Home</a></li>
-                <li><a href="tech">Technology</a></li>
-                <li><a href="ent">Entertainment</a></li>
-                <li><a href="sport">Sport</a></li>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="ent">Entertainment</a></li>
+                    <li><a href="tech">Technology</a></li>
+                    <li><a href="sports">Sport</a></li>
 
                 </div>
 
@@ -44,7 +44,7 @@ class SearchBar extends Component {
                 <div class="cancel-icon">
                 <span class="fas fa-times"></span> 
                 </div>
-                <form>
+                <form onSubmit={e => { e.preventDefault(); }}> 
                 <input type="search" class="search-data" placeholder="Search" required onChange={this.doSearch} value={this.state.value}/>
                 <button class="fas fa-search"></button>
                 </form>

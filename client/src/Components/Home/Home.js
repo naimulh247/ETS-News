@@ -3,6 +3,7 @@ import {API_URL, API_KEY, API_TP_ENT, API_TP_SPORT, API_TP_TECH} from '../../con
 import SearchBar from '../../Elements/SearchBar/SeachBar'
 import HomeMain from '../../Elements/HomeMain/HomeMain';
 
+
 class Home extends Component{
 
     state = {
@@ -22,8 +23,14 @@ class Home extends Component{
         const endpoint = `${API_URL}${API_TP_SPORT}&apiKey=${API_KEY}&pageSize=3`;
 
         this.fetchTemp(endpoint, '')
+
+        
         
     }
+
+    
+        
+    
 
     fetchArticles = (endpoint) =>{
         fetch(endpoint)
@@ -125,15 +132,14 @@ class Home extends Component{
         <>
             <SearchBar callback = {this.searchItem}/>
 
-            <div className="HomeMain-wrapper">
+
                 {this.state.loading ? <h1>Loading<br></br></h1> : <>
                 {this.state.sportArticles.length ?  
-                <div>
-                    <h1>Trending in Sports News</h1>
+                <div className="card-deck">
                     {this.state.sportArticles.map((elements, i)=>{
 
                     return <HomeMain clickable = {elements.urlToImage ? true : false} 
-                    image = {elements.urlToImage} author= {elements.author} description = {elements.description} 
+                    cat='sports' image = {elements.urlToImage} author= {elements.author} description = {elements.description} 
                     date = {elements.publishedAt} linkToArticle={elements.url} title={elements.title}>
                     </HomeMain>})}
                 </div>
@@ -141,7 +147,7 @@ class Home extends Component{
                 }
                 
                 
-                {this.state.techArticles.length? 
+                {/* {this.state.techArticles.length? 
                 <div>
                     <h1>Trending in Technology</h1>
                  {this.state.techArticles.map((elements, i)=>{
@@ -150,8 +156,8 @@ class Home extends Component{
                     image = {elements.urlToImage} author= {elements.author} description = {elements.description} 
                     date = {elements.publishedAt} linkToArticle={elements.url} title={elements.title}>
                     </HomeMain>})}
-                </div> :<h1>Nothing can be found in Technology?? Sowwyyy....</h1>}
-                {this.state.entArticles.lenght?
+                </div> :<h1>Nothing can be found in Technology?? Sowwyyy....</h1>} */}
+                {/* {this.state.entArticles.lenght?
                 <div>
 
                 <h1>Trending in Entertainment</h1>
@@ -161,10 +167,11 @@ class Home extends Component{
                     image = {elements.urlToImage} author= {elements.author} description = {elements.description} 
                     date = {elements.publishedAt} linkToArticle={elements.url} title={elements.title}>
                     </HomeMain>})}
-                </div> :<h1>Nothing can be found in Entertainment?? Sowwyyy....</h1>}</>}
+                </div> :<h1>Nothing can be found in Entertainment?? Sowwyyy....</h1>} */}
+                </>}
 
                 
-            </div>
+
                     </>
         )
     }

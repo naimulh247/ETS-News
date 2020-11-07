@@ -78,17 +78,23 @@ class Sports extends Component{
 
 
         return(
-            <div>
-                <SearchBar callback={this.searchItem} />
-                {this.state.loading? <h1>Loading...</h1> : null}
+            <>
+            <SearchBar callback={this.searchItem}/>
+
+            <div className="card-deck">
+                {this.state.loading ? <h1>Loading...</h1> : null}
                 {this.state.sportsArticles.map((elements, i)=>{
-                    return <SportsGrid title={elements.title} author={elements.author}/>
+                    return <SportsGrid 
+                    title={elements.title} author={elements.author? elements.author : "Unknown Author"} description={elements.description ? elements.description : "Unkown Description"}
+                     date={elements.publishedAt} url={elements.url} image={elements.urlToImage} source = {elements.source.name ? elements.source.name : "unkown"}
+                    />
                 })}
-                {(this.state.currentResult <= this.state.totalResult && !this.state.loading)
-                ?
-                <LoadMoreBtn text='Load More Sports' onClick={this.loadMoreItems}/>
-                :null}
+                {(this.state.currentResult <= this.state.totalResult && !this.state.loading) ?
+                    <LoadMoreBtn text= "Load More" onClick = {this.loadMoreItems}/> 
+                    : null
+                }
             </div>
+        </>
         )
     }
 }
