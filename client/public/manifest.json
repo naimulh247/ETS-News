@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "ETS",
+  "name": "ETS News by React",
   "icons": [
     {
       "src": "favicon.ico",

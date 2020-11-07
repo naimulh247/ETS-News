@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import {API_URL, API_KEY, API_TP_ENT, API_TP_SPORT, API_TP_TECH} from '../../config';
-import SearchBar from '../../Elements/SearchBar/SeachBar'
-import HomeMain from '../../Elements/HomeMain/HomeMain';
+import SearchBar from '../../Elements/SearchBar/SeachBar';
 import HomeGrid from '../../Elements/HomeMain/HomeGrid';
+
 
 
 class Home extends Component{
@@ -29,26 +29,6 @@ class Home extends Component{
         
     }
 
-    
-        
-    
-
-    fetchArticles = (endpoint) =>{
-        fetch(endpoint)
-        .then(result=>result.json())
-        .then(result =>{
-    
-            // console.log(result.articles);
-            // console.log(result.articles[0].author);
-            this.setState({
-                articles: [...result.articles],
-                loading: false
-            });
-            
-            // console.log(this.state.articles[0].author)
-        })
-        .catch(error=>console.log('Error: ', error));
-    }
 
 
     fetchTemp = (endpoint, query) =>{
@@ -56,13 +36,10 @@ class Home extends Component{
         .then(result=>result.json())
         .then(result =>{
     
-            console.log(result.articles);
-            console.log(result.articles[0].author);
             this.setState({
                 sportArticles: [...this.state.sportArticles, ...result.articles],
             });
             
-            // console.log(this.state.articles[0].author)
         })
         .catch(error=>console.log('Sport Error: ', error));
 
@@ -70,34 +47,70 @@ class Home extends Component{
             .then(result=>result.json())
             .then(result =>{
         
-                // console.log(result.articles);
-                console.log(result.articles[0].author);
                 this.setState({
                     techArticles: [...this.state.techArticles, ...result.articles],
                 });
             
-            // console.log(this.state.articles[0].author)
+
         }).catch(error=>console.log('Tech Error: ', error));
 
         fetch(`${API_URL}${API_TP_ENT}&apiKey=${API_KEY}&pageSize=3`)
             .then(result=>result.json())
             .then(result =>{
-        
-                console.log(result.articles);
-                // console.log(result.articles[0].author);
+
                 this.setState({
                     entArticles: [...this.state.entArticles, ...result.articles],
                     loading: false
                 });
             
-            // console.log(this.state.articles[0].author)
         })
         
         .catch(error=>console.log('Ent Error: ', error));}
+
+        else{
+            console.log('endpoing',endpoint)
+            fetch(endpoint)
+            .then(result=>result.json())
+            .then(result =>{
+    
+            console.log('sports:',result.articles);
+            this.setState({
+                sportArticles: [...this.state.sportArticles, ...result.articles],
+            });
+            
+        })
+        .catch(error=>console.log('Sport Error: ', error));
+
+        fetch(`${API_URL}${API_TP_TECH}&apiKey=${API_KEY}&pageSize=3&q=${query}`)
+        .then(result=>result.json())
+        .then(result =>{
+    
+            console.log(result.articles[0].author);
+            this.setState({
+                techArticles: [...this.state.techArticles, ...result.articles],
+            });
+            
+        })
+        .catch(error=>console.log('tech Error: ', error));
+
+        fetch(`${API_URL}${API_TP_ENT}&apiKey=${API_KEY}&pageSize=3&q=${query}`)
+        .then(result=>result.json())
+        .then(result =>{
+    
+            this.setState({
+                entArticles: [...this.state.entArticles, ...result.articles],
+                loading: false
+            });
+            
+        })
+        .catch(error=>console.log('ent Error: ', error));
+
+        
+        }
     }
 
     searchItem = (searchTerm) =>{
-        console.log(searchTerm)
+
         let endpoint = '';
 
         this.setState({
@@ -122,55 +135,12 @@ class Home extends Component{
     }
 
     render (){ 
-        // {this.state.articles.map((elements, o)=>{
-        //     console.log(elements.author)
-        // })}
+        
 
         return (
 
-            // {state.articles}
-            // <div>Home</div>
         <>
-            <SearchBar callback = {this.searchItem}/>
-
-
-                {/* {this.state.loading ? <h1>Loading<br></br></h1> : <>
-                {this.state.sportArticles.length ?  
-                <div className="card-deck">
-                    {this.state.sportArticles.map((elements, i)=>{
-
-                    return <HomeMain clickable = {elements.urlToImage ? true : false} 
-                    cat='sports' image = {elements.urlToImage} author= {elements.author} description = {elements.description} 
-                    date = {elements.publishedAt} linkToArticle={elements.url} title={elements.title}>
-                    </HomeMain>})}
-                </div>
-                    : <h1>Nothing can be found in Sports?? Sowwyyy....</h1>
-                } */}
-                
-                
-                {/* {this.state.techArticles.length? 
-                <div>
-                    <h1>Trending in Technology</h1>
-                 {this.state.techArticles.map((elements, i)=>{
-
-                    return <HomeMain clickable = {elements.urlToImage ? true : false} 
-                    image = {elements.urlToImage} author= {elements.author} description = {elements.description} 
-                    date = {elements.publishedAt} linkToArticle={elements.url} title={elements.title}>
-                    </HomeMain>})}
-                </div> :<h1>Nothing can be found in Technology?? Sowwyyy....</h1>} */}
-                {/* {this.state.entArticles.lenght?
-                <div>
-
-                <h1>Trending in Entertainment</h1>
-                {this.state.entArticles.map((elements, i)=>{
-
-                    return <HomeMain clickable = {elements.urlToImage ? true : false} 
-                    image = {elements.urlToImage} author= {elements.author} description = {elements.description} 
-                    date = {elements.publishedAt} linkToArticle={elements.url} title={elements.title}>
-                    </HomeMain>})}
-                </div> :<h1>Nothing can be found in Entertainment?? Sowwyyy....</h1>} */}
-                {/* </>} */}
-
+            <SearchBar callback={this.searchItem}/>
                 {this.state.loading 
                 ? 
                     <div class="container">
@@ -192,10 +162,11 @@ class Home extends Component{
                 <>
                     {this.state.entArticles.length ?
                     <>
-                    <h4>Latest News in Entertainment <i className="fas fa-film"></i> <i className="fas fa-vide"></i></h4>
+                    <h4><a href="ent">Entertainment <i className="fas fa-film"></i> <i className="fas fa-vide"></i></a></h4>
                     <div className="card-deck" style={{padding: "10px 10px"}}>
                         {this.state.entArticles.map((elements, i)=>{
-                            return <HomeGrid title={elements.title}/>
+                            return <HomeGrid title={elements.title} description={elements.description} url={elements.url}
+                            image={elements.urlToImage ? elements.urlToImage : './images/ent.jpeg'} author={elements.author} source={elements.source.name}/>
                         })}
                     </div>
                     </>
@@ -204,10 +175,11 @@ class Home extends Component{
 
                   {this.state.techArticles.length ?
                   <>
-                  <h4>Latest News in Technology </h4>
+                  <h4><a href="/tech">Technology <i class="fal fa-computer-speaker"></i></a></h4>
                   <div className="card-deck" style={{padding: "10px 10px"}}>
                       {this.state.techArticles.map((elements, i)=>{
-                          return <HomeGrid title={elements.title}/>
+                          return <HomeGrid title={elements.title} description={elements.description} url={elements.url}
+                          image={elements.urlToImage ? elements.urlToImage : './images/tech.jpg'} author={elements.author} source={elements.source.name}/>
                       })}
                   </div>
                   </>
@@ -216,19 +188,22 @@ class Home extends Component{
 
                   {this.state.sportArticles.length ?
                   <>
-                  <h4>Latest News in Sports</h4>
+                  <h4><a href="sports">Sports</a></h4>
                   <div className="card-deck" style={{padding: "10px 10px"}}>
                       {this.state.sportArticles.map((elements, i)=>{
-                          return <HomeGrid title={elements.title}/>
+                          return <HomeGrid title={elements.title} description={elements.description} url={elements.url}
+                          image={elements.urlToImage ? elements.urlToImage : './images/sports.jpg'} author={elements.author} source={elements.source.name}/>
                       })}
                   </div>
                   </>
                   : <h1>Nothing can be found in Sports</h1>
-                  }
 
+                  }                
 
                 </>
             }
+
+            
         </>
         )
     }

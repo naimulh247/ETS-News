@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import '../Header/Header.css'
 
 
 class SearchBar extends Component {
@@ -33,7 +32,7 @@ class SearchBar extends Component {
                     <li><a href="/">Home</a></li>
                     <li><a href="ent">Entertainment</a></li>
                     <li><a href="tech">Technology</a></li>
-                    <li><a href="sports">Sport</a></li>
+                    <li><a href="sports">Sports</a></li>
 
                 </div>
 

@@ -94,7 +94,20 @@ class Technology extends Component{
             <SearchBar callback={this.searchItem}/>
 
             <div className="card-deck">
-                {this.state.loading ? <h1>Loading...</h1> : null}
+                {this.state.loading ? <div class="container">
+                    <div class="loading">
+                      <div class="loading__letter">L</div>
+                      <div class="loading__letter">o</div>
+                      <div class="loading__letter">a</div>
+                      <div class="loading__letter">d</div>
+                      <div class="loading__letter">i</div>
+                      <div class="loading__letter">n</div>
+                      <div class="loading__letter">g</div>
+                      <div class="loading__letter">.</div>
+                      <div class="loading__letter">.</div>
+                      <div class="loading__letter">.</div>
+                    </div>
+                  </div> : null}
                 {this.state.techArticles.map((elements, i)=>{
                     return <TechnologyGrid 
                     title={elements.title} author={elements.author? elements.author : "Unknown Author"} description={elements.description ? elements.description : "Unkown Description"}

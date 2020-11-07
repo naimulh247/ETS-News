@@ -8,6 +8,7 @@
     cursor: pointer;
     transition: all 0.3s;
     margin: auto auto;
+    background-image: linear-gradient(to right, #a1c4fd 0%, #c2e9fb 51%, #a1c4fd 100%);
   }
   
   .loadmorebtn p {
@@ -18,4 +19,5 @@
   
   .loadmorebtn:hover {
     opacity: 0.8;
+
   }
