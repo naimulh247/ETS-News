@@ -1,6 +1,8 @@
-# Getting Started with Create React App
+# Getting Started with ETS News
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was created using React and the NewsApi
+
+## Downloading the Project
 
 ## Available Scripts
 

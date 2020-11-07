@@ -152,6 +152,11 @@ nav .search-icon{
   margin-bottom: 20px!important;
 }
 
+.card:hover{
+  box-shadow: 0 6px 10px ;
+
+}
+
 .card-deck{
   padding: 10px 10px
 }
