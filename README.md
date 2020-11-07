@@ -85,6 +85,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 From the project directory, this is the project structure tree:
 
+```bash
 ├── README.md
 ├── package-lock.json
 ├── package.json
@@ -127,10 +128,12 @@ From the project directory, this is the project structure tree:
     ├── config.js
     ├── index.js
     └── reportWebVitals.js
+
+    ```
 <hr>
 
 Project structure with annitation:
-
+```bash
 ├── README.md
 ├── package-lock.json
 ├── package.json
@@ -173,7 +176,7 @@ Project structure with annitation:
     ├── config.js <b>-- Contains the base url of the NewsApi, ApiKey, and etc </b>
     ├── index.js <b>-- Applications entry point</b>
     └── reportWebVitals.js
-
+    ```
 ## Project Ideas and Walkthrough
 
 The idea of the project is to be as modular as possible. Most of the elements are booken down to small pices to handle each respective pages. 
