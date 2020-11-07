@@ -129,7 +129,7 @@ From the project directory, this is the project structure tree:
     ├── index.js
     └── reportWebVitals.js
 
-    ```
+  ```
 <hr>
 
 Project structure with annitation:
@@ -176,7 +176,7 @@ Project structure with annitation:
     ├── config.js <b>-- Contains the base url of the NewsApi, ApiKey, and etc </b>
     ├── index.js <b>-- Applications entry point</b>
     └── reportWebVitals.js
-    ```
+   ```
 ## Project Ideas and Walkthrough
 
 The idea of the project is to be as modular as possible. Most of the elements are booken down to small pices to handle each respective pages. 
