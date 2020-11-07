@@ -1,8 +1,17 @@
-# Getting Started with ETS News
+# Getting Started with ETS News (Entertainment, Technology, and Sports News)
 
 This project was created using React and the NewsApi
 
+## Live Deployment
+
+The live version of the app can be found here: https://github.com/naimulh247/ets-news.git
+
 ## Downloading the Project
+
+To download the project run:
+
+### `git clone https://github.com/naimulh247/ets-news.git`
+
 
 ## Available Scripts
 
@@ -70,3 +79,120 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+## Project Structure Tree
+
+From the project directory, this is the project structure tree:
+
+├── README.md
+├── package-lock.json
+├── package.json
+├── public
+│   ├── favicon.ico
+│   ├── images
+│   │   ├── ent.jpeg
+│   │   ├── sports.jpg
+│   │   └── tech.jpg
+│   ├── index.html
+│   ├── manifest.json
+│   └── style.css
+└── src
+    ├── Components
+    │   ├── App
+    │   │   ├── App.css
+    │   │   └── App.js
+    │   ├── Entertainment
+    │   │   └── Entertainment.js
+    │   ├── Home
+    │   │   └── Home.js
+    │   ├── Sports
+    │   │   └── Sports.js
+    │   └── Technology
+    │       └── Technology.js
+    ├── Elements
+    │   ├── EntertainmentGrid
+    │   │   └── EntertainmentGrid.js
+    │   ├── HomeMain
+    │   │   └── HomeGrid.js
+    │   ├── LoadMoreBtn
+    │   │   ├── LoadMoreBtn.css
+    │   │   └── LoadMoreBtn.js
+    │   ├── SearchBar
+    │   │   └── SeachBar.js
+    │   ├── SportsGrid
+    │   │   └── SportsGrid.js
+    │   └── TechnologyGrid
+    │       └── TechnologyGrid.js
+    ├── config.js
+    ├── index.js
+    └── reportWebVitals.js
+<hr>
+
+Project structure with annitation:
+
+├── README.md
+├── package-lock.json
+├── package.json
+├── public
+│   ├── favicon.ico
+│   ├── images
+│   │   ├── ent.jpeg
+│   │   ├── sports.jpg
+│   │   └── tech.jpg
+│   ├── index.html
+│   ├── manifest.json
+│   └── style.css
+└── src
+    ├── Components
+    │   ├── App
+    │   │   ├── App.css
+    │   │   └── App.js <b>-- Handles the Routing for each page </b>
+    │   ├── Entertainment
+    │   │   └── Entertainment.js -- Handles the Api call for Entertainment page of the website along with rendering it
+    │   ├── Home
+    │   │   └── Home.js <b>-- Handles the Api call for home page of the website, redering the top 3 articles in each category and search </B>
+    │   ├── Sports
+    │   │   └── Sports.js <b>-- Handles the Api call for Sports page of the website along with rendering it</b>
+    │   └── Technology
+    │       └── Technology.js <b> -- Handles the Api call for Technology page of the website along with rendering it</b>
+    ├── Elements
+    │   ├── EntertainmentGrid
+    │   │   └── EntertainmentGrid.js <b>-- Grid template for the Entertainment page </b>
+    │   ├── HomeMain
+    │   │   └── HomeGrid.js <b>-- Grid template for the Entertainment page </b>
+    │   ├── LoadMoreBtn
+    │   │   ├── LoadMoreBtn.css <b>-- Load buttons style</b>
+    │   │   └── LoadMoreBtn.js<b>-- Load button for subcategory pages</b>
+    │   ├── SearchBar
+    │   │   └── SeachBar.js <b>-- Search bar also acts like the header, with being able to seach in home page and in each category pages</b>
+    │   ├── SportsGrid
+    │   │   └── SportsGrid.js <b>-- Grid template for the Sports page</b>
+    │   └── TechnologyGrid
+    │       └── TechnologyGrid.js <b>-- Grid template for the Technology page</b>
+    ├── config.js <b>-- Contains the base url of the NewsApi, ApiKey, and etc </b>
+    ├── index.js <b>-- Applications entry point</b>
+    └── reportWebVitals.js
+
+## Project Ideas and Walkthrough
+
+The idea of the project is to be as modular as possible. Most of the elements are booken down to small pices to handle each respective pages. 
+
+<b>Home.js:</b> Homepage shows the first 3 articles in the Api call and then when something is searched it shows the first 3 results in each categories. 
+
+<b>Entertainment.js, Technology.js, Sports.js:</b> using their respective grids, the pages shows the aticles/ website, and using the <b>SearchBar.js</b> it can narrow the results in each page, allowing the user to search for specific topic/idea.
+
+## Future Improvements
+
+- Animated cards
+- Cards changing based on the category
+- Homepage parallel Api calls is not the most effient when searching 
+- Carry search from homepage to either Entertainment, Technology, or Sports (Pass parameters through each component)
+- Better mobile responsiveness 
+- Progressive web app??
+
+## Lighthouse Scores
+
+Current Lighthouse Score for Desktop:
+
+<img src="https://paste.pics/79c1c64374b53c27950332fc49e6ee94"/>
