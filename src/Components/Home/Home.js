@@ -15,7 +15,7 @@ class Home extends Component{
         currentPage: 0,
         totalPages: 0,
         searchTerm: '',
-        // loading
+
     }
 
     componentDidMount(){

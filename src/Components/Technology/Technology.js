@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
-import {API_URL, API_KEY, API_TP_ENT, API_TP_SPORT, API_TP_TECH} from '../../config';
+import {API_URL, API_KEY, API_TP_TECH} from '../../config';
 import LoadMoreBtn from '../../Elements/LoadMoreBtn/LoadMoreBtn';
 import SearchBar from '../../Elements/SearchBar/SeachBar'
 import TechnologyGrid from '../../Elements/TechnologyGrid/TechnologyGrid'
-// import LoadMoreBtn  from '../../Elements/LoadMoreBtn/LoadMoreBtn'
+
 
 
 class Technology extends Component{
@@ -29,11 +29,11 @@ class Technology extends Component{
     loadMoreItems = () =>{
         let endpoint =''
 
-        // if(searchTerm === ''){
-            // {this.state.currentResult + 20}
+
+
             endpoint = `${API_URL}${API_TP_TECH}&apiKey=${API_KEY}&page=${this.state.page}`;
             console.log("page count: ", this.state.page, "currentResult: ", this.state.currentResult)
-        // }
+
 
         this.fetchTech(endpoint)
     }
@@ -42,8 +42,7 @@ class Technology extends Component{
         .then(result=>result.json())
         .then(result =>{
     
-            // console.log(result.articles);
-            // console.log(result.totalResults);
+
             console.log(result.articles[0].author);
             console.log()
             let pageCount = this.state.page + 1;
@@ -56,7 +55,7 @@ class Technology extends Component{
                 loading: false
             });
             
-            // console.log(this.state.articles[0].author)
+
         })
         .catch(error=>console.log('Error: ', error));
     }
@@ -86,13 +85,13 @@ class Technology extends Component{
 
 
     render(){
-        // console.log(this.state.techArticles[0].title)
+
 
         return(
-        // <h1>{this.state.techArticles.title}</h1>
+
         <>
             <SearchBar callback={this.searchItem}/>
-
+            
             <div className="card-deck">
                 {this.state.loading ? <div class="container">
                     <div class="loading">
