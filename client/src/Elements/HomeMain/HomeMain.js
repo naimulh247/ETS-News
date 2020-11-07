@@ -1,7 +1,7 @@
 import React from 'react';
 import moment from 'moment';
 import './HomeMain.css';
-
+import HomeGrid from '../../Elements/HomeMain/HomeGrid'
 const HomeMain = (props) =>{
     return (
         // this works:

@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {API_URL, API_KEY, API_TP_ENT, API_TP_SPORT, API_TP_TECH} from '../../config';
 import SearchBar from '../../Elements/SearchBar/SeachBar'
 import HomeMain from '../../Elements/HomeMain/HomeMain';
+import HomeGrid from '../../Elements/HomeMain/HomeGrid';
 
 
 class Home extends Component{
@@ -133,7 +134,7 @@ class Home extends Component{
             <SearchBar callback = {this.searchItem}/>
 
 
-                {this.state.loading ? <h1>Loading<br></br></h1> : <>
+                {/* {this.state.loading ? <h1>Loading<br></br></h1> : <>
                 {this.state.sportArticles.length ?  
                 <div className="card-deck">
                     {this.state.sportArticles.map((elements, i)=>{
@@ -144,7 +145,7 @@ class Home extends Component{
                     </HomeMain>})}
                 </div>
                     : <h1>Nothing can be found in Sports?? Sowwyyy....</h1>
-                }
+                } */}
                 
                 
                 {/* {this.state.techArticles.length? 
@@ -168,11 +169,67 @@ class Home extends Component{
                     date = {elements.publishedAt} linkToArticle={elements.url} title={elements.title}>
                     </HomeMain>})}
                 </div> :<h1>Nothing can be found in Entertainment?? Sowwyyy....</h1>} */}
-                </>}
+                {/* </>} */}
 
+                {this.state.loading 
+                ? 
+                    <div class="container">
+                    <div class="loading">
+                      <div class="loading__letter">L</div>
+                      <div class="loading__letter">o</div>
+                      <div class="loading__letter">a</div>
+                      <div class="loading__letter">d</div>
+                      <div class="loading__letter">i</div>
+                      <div class="loading__letter">n</div>
+                      <div class="loading__letter">g</div>
+                      <div class="loading__letter">.</div>
+                      <div class="loading__letter">.</div>
+                      <div class="loading__letter">.</div>
+                    </div>
+                  </div>
+                : 
                 
-
+                <>
+                    {this.state.entArticles.length ?
+                    <>
+                    <h4>Latest News in Entertainment <i className="fas fa-film"></i> <i className="fas fa-vide"></i></h4>
+                    <div className="card-deck" style={{padding: "10px 10px"}}>
+                        {this.state.entArticles.map((elements, i)=>{
+                            return <HomeGrid title={elements.title}/>
+                        })}
+                    </div>
                     </>
+                    : <h1>Nothing can be found in Entertainment</h1>
+                  }
+
+                  {this.state.techArticles.length ?
+                  <>
+                  <h4>Latest News in Technology </h4>
+                  <div className="card-deck" style={{padding: "10px 10px"}}>
+                      {this.state.techArticles.map((elements, i)=>{
+                          return <HomeGrid title={elements.title}/>
+                      })}
+                  </div>
+                  </>
+                  : <h1> Nothing can be found in Technology</h1>
+                  }
+
+                  {this.state.sportArticles.length ?
+                  <>
+                  <h4>Latest News in Sports</h4>
+                  <div className="card-deck" style={{padding: "10px 10px"}}>
+                      {this.state.sportArticles.map((elements, i)=>{
+                          return <HomeGrid title={elements.title}/>
+                      })}
+                  </div>
+                  </>
+                  : <h1>Nothing can be found in Sports</h1>
+                  }
+
+
+                </>
+            }
+        </>
         )
     }
 }
