@@ -18,6 +18,7 @@ class Home extends Component{
 
     }
 
+    // load up the 3 articles when visiting home page without any seearchs
     componentDidMount(){
         this.setState({loading: true});
 
@@ -30,7 +31,7 @@ class Home extends Component{
     }
 
 
-
+    // parallel api calls? to get 3 articles in each topic
     fetchTemp = (endpoint, query) =>{
         if(query === ''){fetch(endpoint)
         .then(result=>result.json())
@@ -109,6 +110,7 @@ class Home extends Component{
         }
     }
 
+    // searchItem for updating the search term and then call the api
     searchItem = (searchTerm) =>{
 
         let endpoint = '';
@@ -160,6 +162,7 @@ class Home extends Component{
                 : 
                 
                 <>
+                {/* check if the articels aare present then show them other wise an no articel found message */}
                     {this.state.entArticles.length ?
                     <>
                     <h4><a href="ent">Entertainment <i className="fas fa-film"></i> <i className="fas fa-vide"></i></a></h4>

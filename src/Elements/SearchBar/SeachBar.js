@@ -6,7 +6,7 @@ class SearchBar extends Component {
     state = {
         value:''
     }
-
+    // wait for .5 second before action
     timeout =null;
     doSearch = (event) =>{
         this.setState({value:event.target.value});
