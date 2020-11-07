@@ -4,7 +4,7 @@ This project was created using React and the NewsApi
 
 ## Live Deployment
 
-The live version of the app can be found here: https://github.com/naimulh247/ets-news.git
+The live version of the app can be found here: https://ets-news.herokuapp.com
 
 ## Downloading the Project
 
@@ -132,7 +132,7 @@ From the project directory, this is the project structure tree:
   ```
 <hr>
 
-Project structure with annitation:
+Project structure with annotation:
 ```bash
 ├── README.md
 ├── package-lock.json
@@ -198,4 +198,5 @@ The idea of the project is to be as modular as possible. Most of the elements ar
 
 Current Lighthouse Score for Desktop:
 
-<img src="https://i.paste.pics/79c1c64374b53c27950332fc49e6ee94.png?trs=de0902217605d47a938ee6691756f3abd3afa1601ec69e4698b6280a83087559"/>
+<img src="https://i.paste.pics/79c1c64374b53c27950332fc49e6ee94.png?trs=de0902217605d47a938ee6691756f3abd3afa1601ec69e4698b6280a83087559"/> (might not work after 2 week from final commit)
+

@@ -21,12 +21,12 @@ class Entertainment extends Component{
         const endpoint = `${API_URL}${API_TP_ENT}&apiKey=${API_KEY}`;
         this.fetchEnt(endpoint);
     }
-
+    // fecth the api call
     fetchEnt = (endpoint) =>{
         fetch(endpoint)
         .then(result => result.json())
         .then(result =>{
-            console.log(result.articles)
+
             
             let pageCount = this.state.page + 1;
             let resultCount  = this.state.currentResult +20;
@@ -41,8 +41,9 @@ class Entertainment extends Component{
         .catch(err => console.log('Fecth Error: ', err));
     }
 
+
     searchItem = (searchTerm) =>{
-        console.log('Search Term: ', searchTerm)
+
         let endpoint ='';
 
         this.setState({
@@ -53,7 +54,7 @@ class Entertainment extends Component{
             searchTerm,
             loading:false
         })
-
+        // check if the search term is empty or no
         if(searchTerm ===''){
             endpoint = `${API_URL}${API_TP_ENT}&apiKey=${API_KEY}`
         }
@@ -63,7 +64,7 @@ class Entertainment extends Component{
 
         this.fetchEnt(endpoint);
     }
-
+    // load item for the load button
     loadMoreItems = () =>{
         let endpoint = '';
 

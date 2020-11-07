@@ -69,7 +69,7 @@ class Home extends Component{
         .catch(error=>console.log('Ent Error: ', error));}
 
         else{
-            console.log('endpoing',endpoint)
+
             fetch(endpoint)
             .then(result=>result.json())
             .then(result =>{
@@ -86,7 +86,7 @@ class Home extends Component{
         .then(result=>result.json())
         .then(result =>{
     
-            console.log(result.articles[0].author);
+
             this.setState({
                 techArticles: [...this.state.techArticles, ...result.articles],
             });

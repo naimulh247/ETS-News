@@ -29,7 +29,7 @@ class Sports extends Component{
         .then(result =>{
             let pageCount = this.state.page +1;
             let resultCount = this.state.currentResult +20;
-            console.log('pageCount: ', pageCount, 'resutlCount: ', resultCount, 'totalresults: ',result.totalResults)
+
             this.setState({
                 sportsArticles:[...this.state.sportsArticles, ...result.articles],
                 totalResult: result.totalResults,
@@ -43,7 +43,7 @@ class Sports extends Component{
     }
 
     searchItem = (searchTerm) =>{
-        console.log('Search Term: ', searchTerm)
+
         let endpoint ='';
 
         this.setState({
@@ -55,6 +55,7 @@ class Sports extends Component{
             loading:false
         })
 
+        // check if the search term is empty or not
         if(searchTerm ===''){
             endpoint = `${API_URL}${API_TP_SPORT}&apiKey=${API_KEY}`
         }

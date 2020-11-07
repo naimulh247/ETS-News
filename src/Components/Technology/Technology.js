@@ -25,14 +25,14 @@ class Technology extends Component{
         this.fetchTech(endpoint)
 
     }
-
+    // load items for the load button
     loadMoreItems = () =>{
         let endpoint =''
 
 
 
             endpoint = `${API_URL}${API_TP_TECH}&apiKey=${API_KEY}&page=${this.state.page}`;
-            console.log("page count: ", this.state.page, "currentResult: ", this.state.currentResult)
+
 
 
         this.fetchTech(endpoint)
@@ -43,8 +43,7 @@ class Technology extends Component{
         .then(result =>{
     
 
-            console.log(result.articles[0].author);
-            console.log()
+
             let pageCount = this.state.page + 1;
             let resultCount  = this.state.currentResult +20;
             this.setState({
@@ -61,7 +60,7 @@ class Technology extends Component{
     }
 
     searchItem = (searchTerm) =>{
-        console.log("SearchTerm: ",searchTerm)
+
         let endpoint = ''
 
         this.setState({
@@ -72,6 +71,7 @@ class Technology extends Component{
             currentResult:0,
             searchTerm
         })
+        // check if the search term is empty or not and then call the api with respective endpoint
         if(searchTerm ===''){
             endpoint = `${API_URL}${API_TP_TECH}&apiKey=${API_KEY}`;
         }
